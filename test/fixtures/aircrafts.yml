@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tail_number: MyString
+  aircraft_type_id: 
+  fuel_amount: 
+
+two:
+  tail_number: MyString
+  aircraft_type_id: 
+  fuel_amount: 

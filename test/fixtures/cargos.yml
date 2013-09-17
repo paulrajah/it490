@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  weight: 1
+  contents: MyString
+
+two:
+  weight: 1
+  contents: MyString

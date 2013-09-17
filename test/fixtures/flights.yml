@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  number: 1
+  origin: MyString
+  destination: MyString
+  departure_time: 2013-09-16
+  arrival_time: 2013-09-16
+  cargo_id: 1
+  crew_id: 1
+
+two:
+  number: 1
+  origin: MyString
+  destination: MyString
+  departure_time: 2013-09-16
+  arrival_time: 2013-09-16
+  cargo_id: 1
+  crew_id: 1
