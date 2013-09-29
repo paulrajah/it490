@@ -40,7 +40,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -49,4 +49,14 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
+
+# Paginate
+gem 'will_paginate', '~> 3.0'
+
+# API Framework
+gem 'grape', '~> 0.6.0'
+
+# Security Framework
+gem 'devise', '~> 3.1.0'
+gem 'cancan', '~> 1.6.10'
