@@ -1,27 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Wrong Way Airlines - There's no better way to fly</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-	<div>
-	   <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-	</div>
 
+<body>
+  <header>
+  	<a href="/"><img src="/assets/logo.gif"></a>
+  	<nav></nav>
+  	
 <div id="user_nav">
   <% if user_signed_in? %>
+    <% if current_user.try(:admin?) %>
+      <%= link_to "Admin Console", dashboard_path %>
+    <% end %>
+
     Signed in as <%= current_user.email %>. Not you?
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
   <% end %>
 </div>
+  </header>
+
+	<div>
+	   <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+	</div>
+
 
 <%= yield %>
 
+	<div class="5grid-layout">
+		<div id="copyright">
+		<p>&copy; </p>
+		</div>
+	</div>
 </body>
 </html>
