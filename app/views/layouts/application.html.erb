@@ -2,42 +2,51 @@
 <html lang="en">
 <head>
   <title>Wrong Way Airlines - There's no better way to fly</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" =>true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
-  <header>
-  	<a href="/"><img src="/assets/logo.gif"></a>
-  	<nav></nav>
-  	
-<div id="user_nav">
-  <% if user_signed_in? %>
-    <% if current_user.try(:admin?) %>
-      <%= link_to "Admin Console", dashboard_path %>
-    <% end %>
+  <div class="wrapper">
+    <div class="header">
+      <div class="container clearfix">
+        <a class="header-logo-wordmark" href="/"><span class="mega-octicon octicon-logo-it490"></span></a>
+        <div class="header-actions">
+          <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>. <br> Not you? <%= link_to "Sign out", destroy_user_session_path, :method => :delete%>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, :class => 'button primary gh-orange big active' %>
+            <%= link_to "Sign in", new_user_session_path, :class => 'button big gh-black' %>
+          <% end %>
+        </div>
 
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-</div>
-  </header>
+        <div class="command-bar">
+          <ul class="top-nav">
+            <% if user_signed_in? %>
+              <% if current_user.try(:is_admin?) %>
+                <li class="admin"><%= link_to "Admin Console", dashboard_path %></li>
+              <% else %>
+                <li class="shipments"><a href="/shipments">My Shipments</a></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<div>
-	   <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-	</div>
+  <div class="container">
+    <div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
 
+    <%= yield %>
+  </div>
 
-<%= yield %>
+  <br/>
 
-	<div class="5grid-layout">
-		<div id="copyright">
-		<p>&copy; </p>
-		</div>
-	</div>
 </body>
 </html>

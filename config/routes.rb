@@ -3,6 +3,10 @@ It490::Application.routes.draw do
 
   root 'static_pages#home'
 
+  resources :airports
+  resources :pilots
+  resources :navigators
+
   get '/dashboard' => 'dashboard#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

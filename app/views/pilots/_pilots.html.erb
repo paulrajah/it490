@@ -1,0 +1,38 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<%= will_paginate @pilots %>
+
+<table class="pretty">
+	<thead>
+		<tr>
+			<th>
+				<%= sortable "fname", "First Name" %></th>
+			<th>
+				<%= sortable "lname", "Last Name" %></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @pilots.each do |pilot| %>
+		<tr>
+			<td>
+				<%= pilot.fname %></td>
+			<td>
+				<%= pilot.lname %></td>
+			<td>
+				<%= link_to 'Show', pilot %></td>
+			<td>
+				<%= link_to 'Edit', edit_pilot_path(pilot) %></td>
+			<td>
+				<%= link_to 'Destroy', pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %></tbody>
+</table>
+
+<%= will_paginate @pilots %>
+
+<br>
