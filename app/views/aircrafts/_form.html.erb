@@ -1,0 +1,31 @@
+<%= form_for(@aircraft) do |f| %>
+  <% if @aircraft.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aircraft.errors.count, "error") %> prohibited this aircraft from being saved:</h2>
+
+      <ul>
+      <% @aircraft.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="field">
+    <%= f.label :tail_number, 'Tail Number' %><br>
+    <%= f.text_field :tail_number, :placeholder => 'Tail Number' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :aircraft_type_id, 'Aircraft Type' %><br>
+    <%= f.select :aircraft_type_id, AircraftType.all.collect {|a| [a.name, a.id]} -%>
+  </div>
+
+  <div class="field">
+    <%= f.label :fuel_amount, 'Fuel Amount' %><br>
+    <%= f.text_field :fuel_amount, :placeholder => 'Fuel Amount' %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class => 'button big gh-black'%>
+  </div>
+<% end %>

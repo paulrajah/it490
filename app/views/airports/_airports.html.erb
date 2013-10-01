@@ -3,32 +3,23 @@
 
 <%= will_paginate @airports %>
 
-<table class="pretty">
+<table width="600">
 	<thead>
 		<tr>
-			<th>
-				<%= sortable "code" %></th>
-			<th>
-				<%= sortable "name" %></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th><%= sortable "code" %></th>
+			<th><%= sortable "name" %></th>
+			<th colspan="3"></th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @airports.each do |airport| %>
 		<tr>
-			<td>
-				<%= airport.code %></td>
-			<td>
-				<%= airport.name %></td>
-			<td>
-				<%= link_to 'Show', airport %></td>
-			<td>
-				<%= link_to 'Edit', edit_airport_path(airport) %></td>
-			<td>
-				<%= link_to 'Destroy', airport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= airport.code %></td>
+			<td><%= airport.name %></td>
+			<td><%= link_to 'Show', airport %></td>
+			<td><%= link_to 'Edit', edit_airport_path(airport) %></td>
+			<td><%= link_to 'Destroy', airport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 		<% end %></tbody>
 </table>

@@ -1,0 +1,16 @@
+<h1>Navigator Details</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @navigator.fname %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @navigator.lname %>
+</p>
+
+<%= link_to 'Edit', edit_navigator_path(@navigator) %> |
+<%= link_to 'Back', navigator_path %>

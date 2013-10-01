@@ -1,0 +1,30 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<%= will_paginate @aircrafts %>
+
+<table width="600">
+	<thead>
+		<tr>
+			<th><%= sortable "tail_number", "Tail Number" %></th>
+			<th><%= sortable "aircraft_type", "Aircraft Type" %></th>
+			<th><%= sortable "fuel_amount", "Fuel Amount" %></th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @aircrafts.each do |aircraft| %>
+		<tr>
+			<td><%= aircraft.tail_number %></td>
+			<td><%= aircraft.aircraft_type.name %>
+			<td><%= aircraft.fuel_amount %></td>
+			<td><%= link_to 'Show', aircraft %></td>
+			<td><%= link_to 'Edit', edit_aircraft_path(aircraft) %></td>
+			<td><%= link_to 'Destroy', aircraft, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %></tbody>
+</table>
+
+<%= will_paginate @aircrafts %>
+
+<br>

@@ -16,6 +16,7 @@ User.create(email: "d.mcgary@verizon.net", password: "test1234", password_confir
 User.create(email: "cpicche@gmail.com", password: "test1234", password_confirmation: "test1234", is_admin: true)
 User.create(email: "pr257@njit.edu", password: "test1234", password_confirmation: "test1234", is_admin: true)
 
+# Pilots
 Pilot.create(fname: 'Louis', lname: 'Lee')
 Pilot.create(fname: 'Earl', lname: 'Mitchell')
 Pilot.create(fname: 'Diane', lname: 'Kelly')
@@ -42,6 +43,7 @@ Pilot.create(fname: 'Jimmy', lname: 'Bell')
 Pilot.create(fname: 'Jesse', lname: 'Thompson')
 Pilot.create(fname: 'Gloria', lname: 'Rivera')
 
+# Navigator
 Navigator.create(fname: 'Eugene', lname: 'Lee')
 Navigator.create(fname: 'Jerry', lname: 'Lopez')
 Navigator.create(fname: 'Emily', lname: 'Baker')
@@ -68,6 +70,7 @@ Navigator.create(fname: 'Sharon', lname: 'Watson')
 Navigator.create(fname: 'Bruce', lname: 'Ward')
 Navigator.create(fname: 'Pamela', lname: 'Cox')
 
+# AircraftType
 AircraftType.create(code: 'AB3', name: 'Airbus A300')
 AircraftType.create(code: '310', name: 'Airbus A310')
 AircraftType.create(code: '320', name: 'Airbus A320')
@@ -99,6 +102,10 @@ AircraftType.create(code: 'D1F', name: 'McDonnell Douglas DC-10')
 AircraftType.create(code: 'M1F', name: 'McDonnell Douglas MD-11')
 AircraftType.create(code: 'T2F', name: 'Tupolev Tu-204')
 
+# Aircraft
+Aircraft.create(tail_number: '123456', aircraft_type_id: 1, fuel_amount: 10000)
+
+# Airport
 Airport.create(code: 'ATL', name: 'Hartsfield-Jackson Atlanta International')
 Airport.create(code: 'ANC', name: 'Ted Stevens Anchorage International Airport')
 Airport.create(code: 'AUS', name: 'Austin-Bergstrom International')

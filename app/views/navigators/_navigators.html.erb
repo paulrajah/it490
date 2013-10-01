@@ -1,0 +1,29 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<%= will_paginate @navigators %>
+
+<table width="600">
+	<thead>
+		<tr>
+			<th><%= sortable "fname", "First Name" %></th>
+			<th><%= sortable "lname", "Last Name" %></th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @navigators.each do |navigator| %>
+		<tr>
+			<td><%= navigator.fname %></td>
+			<td><%= navigator.lname %></td>
+			<td><%= link_to 'Show', navigator %></td>
+			<td><%= link_to 'Edit', edit_navigator_path(navigator) %></td>
+			<td><%= link_to 'Destroy', navigator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %></tbody>
+</table>
+
+<%= will_paginate @navigators %>
+
+<br>

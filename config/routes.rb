@@ -3,6 +3,7 @@ It490::Application.routes.draw do
 
   root 'static_pages#home'
 
+  resources :aircrafts
   resources :airports
   resources :pilots
   resources :navigators

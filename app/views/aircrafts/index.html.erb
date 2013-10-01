@@ -1,0 +1,15 @@
+<h1>Listing of aircrafts</h1>
+
+<div>
+  <%= link_to 'New Aircraft', new_aircraft_path %>
+</div>
+
+<br>
+
+<%= form_tag aircrafts_path, :method => 'get', :id => "aircrafts_search" do %>
+  <div>
+    <%= text_field_tag :search, params[:search], :placeholder => 'Search by Tail Number', :size => 45 %>
+    <%= submit_tag "Search", :name => nil, :class => 'button big gh-black' %>
+  </div>
+  <div id="aircrafts"><%= render 'aircrafts' %></div>
+<% end %>

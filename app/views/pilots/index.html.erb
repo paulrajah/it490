@@ -1,15 +1,15 @@
 <h1>Listing of pilots</h1>
 
 <div>
-  <%= link_to 'New Pilot', new_pilot_path, options = {:class =>'btn btn-primary btn-lg btn-block'} %>
+  <%= link_to 'New Pilot', new_pilot_path %>
 </div>
 
 <br>
 
 <%= form_tag pilots_path, :method => 'get', :id => "pilots_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+  <div>
+    <%= text_field_tag :search, params[:search], :placeholder => 'Search', :size => 45 %>
+    <%= submit_tag "Search", :name => nil, :class => 'button big gh-black' %>
+  </div>
   <div id="pilots"><%= render 'pilots' %></div>
 <% end %>
