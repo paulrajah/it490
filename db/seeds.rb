@@ -6,8 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(email: "martin.berwanger@gmail.com", password: "test1234", password_confirmation: "test1234", is_admin: true)
+# General User
 User.create(email: "mberwanger@yahoo.com", password: "test1234", password_confirmation: "test1234")
+
+# Admin Users
+User.create(email: "martin.berwanger@gmail.com", password: "test1234", password_confirmation: "test1234", is_admin: true)
+User.create(email: "umana.ali@gmail.com", password: "test1234", password_confirmation: "test1234", is_admin: true)
+User.create(email: "d.mcgary@verizon.net", password: "test1234", password_confirmation: "test1234", is_admin: true)
+User.create(email: "cpicche@gmail.com", password: "test1234", password_confirmation: "test1234", is_admin: true)
+User.create(email: "pr257@njit.edu", password: "test1234", password_confirmation: "test1234", is_admin: true)
 
 Pilot.create(fname: 'Louis', lname: 'Lee')
 Pilot.create(fname: 'Earl', lname: 'Mitchell')
