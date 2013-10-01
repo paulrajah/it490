@@ -1,0 +1,31 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<%= will_paginate @users %>
+
+<table width="600">
+	<thead>
+		<tr>
+			<th><%= sortable "email", "Email Address" %></th>
+			<th><%= sortable "last_sign_in_at", "Last Sign" %></th>
+			<th><%= sortable "is_admin", "Is Admin" %></th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.email %></td>
+			<td><%= user.last_sign_in_at %></td>
+			<td><%= user.is_admin %></td>
+			<td><%= link_to 'Show', user %></td>
+			<td><%= link_to 'Edit', edit_user_path(user) %></td>
+			<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %></tbody>
+</table>
+
+<%= will_paginate @users %>
+
+<br>

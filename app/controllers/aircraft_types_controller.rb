@@ -1,80 +1,85 @@
-class PilotsController < ApplicationController
-  before_action :set_pilot, only: [:show, :edit, :update, :destroy]
+class AircraftTypesController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :is_admin_filter
+
+  before_action :set_aircraft_type, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
-  # GET /pilots
-  # GET /pilots.json
+  layout 'admin'
+
+  # GET /aircraft_types
+  # GET /aircraft_types.json
   def index
-     @pilots = Pilot.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 25, :page => params[:page])
+    @aircraft_types = AircraftType.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 25, :page => params[:page])
   end
 
-  # GET /pilots/1
-  # GET /pilots/1.json
+  # GET /aircraft_types/1
+  # GET /aircraft_types/1.json
   def show
   end
 
-  # GET /pilots/new
+  # GET /aircraft_types/new
   def new
-    @pilot = Pilot.new
+    @aircraft_type = AircraftType.new
   end
 
-  # GET /pilots/1/edit
+  # GET /aircraft_types/1/edit
   def edit
   end
 
-  # POST /pilots
-  # POST /pilots.json
+  # POST /aircraft_types
+  # POST /aircraft_types.json
   def create
-    @pilot = Pilot.new(pilot_params)
+    @aircraft_type = AircraftType.new(aircraft_type_params)
 
     respond_to do |format|
-      if @pilot.save
-        format.html { redirect_to @pilot, notice: 'Pilot was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @pilot }
+      if @aircraft_type.save
+        format.html { redirect_to @aircraft_type, notice: 'Aircraft type was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @aircarft_type }
       else
         format.html { render action: 'new' }
-        format.json { render json: @pilot.errors, status: :unprocessable_entity }
+        format.json { render json: @aircraft_type.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /pilots/1
-  # PATCH/PUT /pilots/1.json
+  # PATCH/PUT /aircraft_types/1
+  # PATCH/PUT /aircraft_types/1.json
   def update
     respond_to do |format|
-      if @pilot.update(pilot_params)
-        format.html { redirect_to @pilot, notice: 'Pilot was successfully updated.' }
+      if @aircraft_type.update(aircraft_type_params)
+        format.html { redirect_to @aircraft_type, notice: 'Aircraft type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @pilot.errors, status: :unprocessable_entity }
+        format.json { render json: @aircraft_type.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /pilots/1
-  # DELETE /pilots/1.json
+  # DELETE /aircraft_types/1
+  # DELETE /aircraft_types/1.json
   def destroy
-    @pilot.destroy
+    @aircraft_type.destroy
     respond_to do |format|
-      format.html { redirect_to pilots_url }
+      format.html { redirect_to aircraft_types_url }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_pilot
-      @pilot = Pilot.find(params[:id])
+    def set_aircraft_type
+      @aircraft_type = AircraftType.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def pilot_params
-      params.require(:pilot).permit(:id, :fname, :lname)
+    def aircraft_type_params
+      params.require(:aircraft_type).permit(:id, :code, :name)
     end
 
     def sort_column
-      Pilot.column_names.include?(params[:sort]) ? params[:sort] : "lname"
+      AircraftType.column_names.include?(params[:sort]) ? params[:sort] : "name"
     end
   
     def sort_direction

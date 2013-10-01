@@ -1,6 +1,11 @@
 class AirportsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :is_admin_filter
+
   before_action :set_airport, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
+
+  layout 'admin'
 
   # GET /airports
   # GET /airports.json

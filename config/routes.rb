@@ -1,14 +1,16 @@
 It490::Application.routes.draw do
+  resources :aircarft_types
+
   devise_for :users
 
   root 'static_pages#home'
 
   resources :aircrafts
+  resources :aircraft_types
   resources :airports
   resources :pilots
   resources :navigators
-
-  get '/dashboard' => 'dashboard#index'
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

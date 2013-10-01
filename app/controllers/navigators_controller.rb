@@ -1,7 +1,12 @@
 class NavigatorsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :is_admin_filter
+
   before_action :set_navigator, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
+  layout 'admin'
+  
   # GET /navigators
   # GET /navigators.json
   def index
