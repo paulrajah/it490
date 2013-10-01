@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20130929134531) do
 
   create_table "aircraft_types", force: true do |t|
-    t.string   "code",       limit: 4
+    t.string   "code",       limit: 3
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
