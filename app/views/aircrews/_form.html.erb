@@ -1,0 +1,27 @@
+<%= form_for(@aircrew) do |f| %>
+  <% if @aircrew.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aircrew.errors.count, "error") %> prohibited this aircrew from being saved:</h2>
+
+      <ul>
+      <% @aircrew.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pilot_id, 'Pilot' %><br>
+    <%= f.select :pilot_id, Pilot.all.collect {|a| ["#{a.lname}, #{a.fname}", a.id]} -%>
+  </div>
+
+  <div class="field">
+    <%= f.label :navigator_id, 'Navigator' %><br>
+    <%= f.select :navigator_id, Navigator.all.collect {|a| ["#{a.lname}, #{a.fname}", a.id]} -%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :class => 'button big gh-black'%>
+  </div>
+<% end %>

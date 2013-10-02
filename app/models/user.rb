@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('email LIKE ?', "%#{search}%")
+      where('LOWER(email) LIKE LOWER(?)', "%#{search}%")
     else
       scoped
     end

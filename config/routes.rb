@@ -7,7 +7,9 @@ It490::Application.routes.draw do
 
   resources :aircrafts
   resources :aircraft_types
+  resources :aircrews
   resources :airports
+  resources :flights
   resources :pilots
   resources :navigators
   resources :users

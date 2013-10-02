@@ -1,0 +1,16 @@
+<h1>Aircrew Details</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pilot:</strong>
+  <%= "#{@aircrew.pilot.lname}, #{@aircrew.pilot.fname}" %>
+</p>
+
+<p>
+  <strong>Navigator:</strong>
+  <%= "#{@aircrew.navigator.lname}, #{@aircrew.navigator.fname}" %>
+</p>
+
+<%= link_to 'Edit', edit_aircrew_path(@aircrew) %> |
+<%= link_to 'Back', aircrews_path %>

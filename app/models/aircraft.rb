@@ -6,7 +6,7 @@ class Aircraft < ActiveRecord::Base
 
 	def self.search(search)
 		if search
-			where('tail_number LIKE ?', "%#{search}%")
+			where('LOWER(tail_number) LIKE LOWER(?)', "%#{search}%")
 		else
 			scoped
 		end

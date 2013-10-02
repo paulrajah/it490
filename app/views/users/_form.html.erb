@@ -24,6 +24,10 @@
     <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", class: "form-control" %>
   </div>
 
+  <div class="field">
+    <%= f.label :is_admin, 'Administrator' %>: <%= f.check_box :is_admin, class: "form-control" %>
+  </div>
+
   <div class="actions">
     <%= f.submit :class => 'button big gh-black'%>
   </div>

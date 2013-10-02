@@ -44,7 +44,7 @@ Pilot.create(fname: 'Jesse', lname: 'Thompson')
 Pilot.create(fname: 'Gloria', lname: 'Rivera')
 
 # Navigator
-Navigator.create(fname: 'Eugene', lname: 'Lee')
+Navigator.create(fname: 'Eugene', lname: 'Lam')
 Navigator.create(fname: 'Jerry', lname: 'Lopez')
 Navigator.create(fname: 'Emily', lname: 'Baker')
 Navigator.create(fname: 'Jennifer', lname: 'Griffin')
@@ -102,9 +102,6 @@ AircraftType.create(code: 'D1F', name: 'McDonnell Douglas DC-10')
 AircraftType.create(code: 'M1F', name: 'McDonnell Douglas MD-11')
 AircraftType.create(code: 'T2F', name: 'Tupolev Tu-204')
 
-# Aircraft
-Aircraft.create(tail_number: '123456', aircraft_type_id: 1, fuel_amount: 10000)
-
 # Airport
 Airport.create(code: 'ATL', name: 'Hartsfield-Jackson Atlanta International')
 Airport.create(code: 'ANC', name: 'Ted Stevens Anchorage International Airport')
@@ -158,3 +155,15 @@ Airport.create(code: 'STL', name: 'Lambert-St. Louis International')
 Airport.create(code: 'TPA', name: 'Tampa International')
 Airport.create(code: 'IAD', name: 'Dulles International Airport')
 Airport.create(code: 'DCA', name: 'Ronald Reagan Washington National')
+
+# Aircraft
+Aircraft.create(tail_number: 'N234AA', aircraft_type_id: 1, fuel_amount: 10000)
+
+# Cargo
+Cargo.create(weight: 50000, contents: "electronics")
+
+# Aircrew
+Aircrew.create(pilot_id: 1, navigator_id: 2)
+
+# Flight
+Flight.create(number: '1418', aircraft_id: 1, origin_id: 32, destination_id: 24, departure_time: '2013-10-02 18:29:04', arrival_time: '2013-10-02 18:29:04', cargo_id: 1, aircrew_id: 1)

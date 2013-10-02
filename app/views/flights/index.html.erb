@@ -1,0 +1,15 @@
+<h1>Listing of Flights</h1>
+
+<div>
+  <%= link_to 'New Flight', new_flight_path %>
+</div>
+
+<br>
+
+<%= form_tag flights_path, :method => 'get', :id => "flights_search" do %>
+  <div>
+    <%= text_field_tag :search, params[:search], :placeholder => 'Search by Flight Number', :size => 45 %>
+    <%= submit_tag "Search", :name => nil, :class => 'button big gh-black' %>
+  </div>
+  <div id="flights"><%= render 'flights' %></div>
+<% end %>

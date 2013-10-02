@@ -1,0 +1,58 @@
+<h1>Airport Details</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flight Number:</strong>
+  <%= @flight.number %>
+</p>
+
+<p>
+  <strong>Aircraft Tail Number:</strong>
+  <%= @flight.aircraft.tail_number %>
+</p>
+<p>
+  <strong>Aircraft Type:</strong>
+  <%= "#{@flight.aircraft.aircraft_type.code} - #{@flight.aircraft.aircraft_type.name}" %>
+</p>
+<p>
+  <strong>Aircraft Fuel Capacity:</strong>
+  <%= @flight.aircraft.fuel_amount %>
+</p>
+<p>
+  <strong>Origin Airport:</strong>
+  <%= "#{@flight.origin.code} - #{@flight.origin.name}" %>
+</p>
+<p>
+  <strong>Destination Airport:</strong>
+  <%= "#{@flight.destination.code} - #{@flight.destination.name}" %>
+</p>
+<p>
+  <strong>Departure Time:</strong>
+  <%= @flight.departure_time %>
+</p>
+<p>
+  <strong>Arrival Time:</strong>
+  <%= @flight.arrival_time %>
+</p>
+
+<p>
+  <strong>Cargo Contents:</strong>
+  <%= @flight.cargo.contents %>
+</p>
+<p>
+  <strong>Cargo Weight:</strong>
+  <%= @flight.cargo.weight %>
+</p>
+
+<p>
+  <strong>Pilot:</strong>
+  <%= "#{@flight.aircrew.pilot.lname}, #{@flight.aircrew.pilot.fname}" %>
+</p>
+<p>
+  <strong>Navigator:</strong>
+   <%= "#{@flight.aircrew.navigator.lname}, #{@flight.aircrew.navigator.fname}" %>
+</p>
+
+<%= link_to 'Edit', edit_flight_path(@flight) %> |
+<%= link_to 'Back', flights_path %>

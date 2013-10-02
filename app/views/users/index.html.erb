@@ -8,7 +8,7 @@
 
 <%= form_tag users_path, :method => 'get', :id => "users_search" do %>
   <div>
-    <%= text_field_tag :search, params[:search], :placeholder => 'Search', :size => 45 %>
+    <%= text_field_tag :search, params[:search], :placeholder => 'Search by Email', :size => 45 %>
     <%= submit_tag "Search", :name => nil, :class => 'button big gh-black' %>
   </div>
   <div id="users"><%= render 'users' %></div>

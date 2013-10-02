@@ -4,7 +4,7 @@ class Navigator < ActiveRecord::Base
 
 	def self.search(search)
 		if search
-			where('fname LIKE ? or lname LIKE ?', "%#{search}%", "%#{search}%")
+			where('LOWER(fname) LIKE LOWER(?) or LOWER(lname) LIKE LOWER(?)', "%#{search}%", "%#{search}%")
 		else
 			scoped
 		end

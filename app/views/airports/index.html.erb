@@ -8,7 +8,7 @@
 
 <%= form_tag airports_path, :method => 'get', :id => "airports_search" do %>
   <div>
-    <%= text_field_tag :search, params[:search], :placeholder => 'Search', :size => 45 %>
+    <%= text_field_tag :search, params[:search], :placeholder => 'Search by Name or Code', :size => 45 %>
     <%= submit_tag "Search", :name => nil, :class => 'button big gh-black' %>
   </div>
   <div id="airports"><%= render 'airports' %></div>

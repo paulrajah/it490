@@ -1,0 +1,11 @@
+<h1>Listing of Aircrew</h1>
+
+<div>
+  <%= link_to 'New Aircrew', new_aircrew_path %>
+</div>
+
+<br>
+
+<%= form_tag aircrews_path, :method => 'get', :id => "aircrews_search" do %>
+  <div id="aircrews"><%= render 'aircrews' %></div>
+<% end %>

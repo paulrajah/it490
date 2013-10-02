@@ -1,0 +1,30 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<%= will_paginate @aircrews %>
+
+<table width="600">
+	<thead>
+		<tr>
+			<th>Crew Id</th>
+			<th>Pilot</th>
+			<th>Navigator</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @aircrews.each do |aircrew| %>
+		<tr>
+			<td><%= aircrew.id %></td>
+			<td><%= aircrew.pilot.lname + ", " + aircrew.pilot.fname %>
+			<td><%= aircrew.navigator.lname + ", " + aircrew.navigator.fname %></td>
+			<td><%= link_to 'Show', aircrew %></td>
+			<td><%= link_to 'Edit', edit_aircrew_path(aircrew) %></td>
+			<td><%= link_to 'Destroy', aircrew, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %></tbody>
+</table>
+
+<%= will_paginate @aircrews %>
+
+<br>
