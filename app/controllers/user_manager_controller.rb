@@ -1,40 +1,41 @@
-class UsersController < ApplicationController
+class UserManagerController < ApplicationController
   before_filter :authenticate_user!
   before_filter :is_admin_filter
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
-  layout 'admin'
+  layout 'secure'
 
-  # GET /users
-  # GET /users.json
+  # GET /user_manager
+  # GET /user_manager.json
   def index
      @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 25, :page => params[:page])
   end
 
-  # GET /users/1
-  # GET /users/1.json
+  # GET /user_manager/1
+  # GET /user_manager/1.json
   def show
   end
 
-  # GET /users/new
+  # GET /user_manager/new
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
+  # GET /user_manager/1/edit
   def edit
   end
 
-  # POST /users
-  # POST /users.json
+  # POST /user_manager
+  # POST /user_manager.json
   def create
+
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'Pilot was successfully created.' }
+        format.html { redirect_to user_manager_index_path(@user), notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -43,12 +44,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+  # PATCH/PUT /user_manager/1
+  # PATCH/PUT /user_manager/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to user_manager_index_path(@user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,12 +58,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
+  # DELETE /user_manager/1
+  # DELETE /user_manager/1.json
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to user_manager_index_url }
       format.json { head :no_content }
     end
   end

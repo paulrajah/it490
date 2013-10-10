@@ -5,6 +5,9 @@ It490::Application.routes.draw do
 
   root 'static_pages#home'
 
+  resources :shipment_requests
+  get 'shipments' => 'shipments#index'
+
   resources :aircrafts
   resources :aircraft_types
   resources :aircrews
@@ -12,7 +15,7 @@ It490::Application.routes.draw do
   resources :flights
   resources :pilots
   resources :navigators
-  resources :users
+  resources :user_manager
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

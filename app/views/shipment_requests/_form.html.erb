@@ -1,0 +1,43 @@
+<%= form_for(@shipment_request) do |f| %>
+  <% if @shipment_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shipment_request.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+
+      <ul>
+      <% @shipment_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2>Cargo Information</h2>
+
+  <div class="field">
+    <%= f.label :cargo_weight %><br>
+    <%= f.text_field :cargo_weight %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo_contents %><br>
+    <%= f.text_area :cargo_contents, :cols => "40", :rows => "6" %>
+  </div>
+
+  <h2>Shipping Information</h2>
+
+    <div class="field">
+    <%= f.label :origin_id, 'Origin' %><br>
+    <%= f.select :origin_id, Airport.all.collect {|a| ["#{a.code} - #{a.name}", a.id]} -%>
+  </div>
+  <div class="field">
+    <%= f.label :destination_id, 'Destination' %><br>
+    <%= f.select :destination_id, Airport.all.collect {|a| ["#{a.code} - #{a.name}", a.id]} -%>
+  </div>
+  <div class="field">
+    <%= f.label :desired_departure_datetime %><br>
+    <%= f.datetime_select :desired_departure_datetime,  default: 3.days.from_now, :order => [:month, :day, :year] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :class => 'button big gh-black'%>
+  </div>
+<% end %>

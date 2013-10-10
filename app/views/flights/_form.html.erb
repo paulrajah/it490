@@ -11,19 +11,56 @@
     </div>
   <% end %>
 
+  <h2>User Information</h2>
   <div class="field">
-    <%= f.label :number, 'Tail Number' %><br>
-    <%= f.select :number, Aircraft.all.collect {|a| [a.tail_number, a.id]} -%>
-  </div>
-  <div class="field">
-    <%= f.label :origin, 'Origin' %><br>
-    <%= f.select :origin, Airport.all.collect {|a| [a.name, a.id]} -%>
-  </div>
-  <div class="field">
-    <%= f.label :destination, 'Destination' %><br>
-    <%= f.select :destination, Airport.all.collect {|a| [a.name, a.id]} -%>
+    <label for="flight_user_id">Requestor</label><br>
+    <%= f.collection_select :user_id, User.all, :id, :email %>
   </div>
 
+  <h2>Cargo Information</h2>
+  <%= f.fields_for :cargo, @flight.cargo do |c| %>
+
+  <div class="field">
+    <%= c.label :weight %><br>
+    <%= c.text_field :weight %>
+  </div>
+  <div class="field">
+    <%= c.label :contents %><br>
+    <%= c.text_area :contents, :cols => "40", :rows => "6" %>
+  </div>
+  <% end %>
+
+  <h2>Flight Information</h2>
+  <div class="field">
+    <%= f.label :aircraft_id, 'Aircraft' %><br>
+    <%= f.collection_select :aircraft_id, Aircraft.all, :id, :pretty_name, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :number, 'Flight Number' %><br>
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :aircrew_id, 'Aircrew' %><br>
+    <%= f.collection_select :aircrew_id, Aircrew.all, :id, :pretty_name, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :origin_id, 'Origin' %><br>
+    <%= f.collection_select :origin_id, Airport.all, :id, :pretty_name, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :destination_id, 'Destination' %><br>
+    <%= f.collection_select :destination_id, Airport.all, :id, :pretty_name, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :departure_time %><br>
+    <%= f.datetime_select :departure_time,  :order => [:month, :day, :year] %>
+  </div>
+  <div class="field">
+    <%= f.label :arrival_time %><br>
+    <%= f.datetime_select :arrival_time,  :order => [:month, :day, :year] %>
+  </div>
+
+  <%= f.hidden_field :request_id %>
   <div class="actions">
     <%= f.submit :class => 'button big gh-black'%>
   </div>

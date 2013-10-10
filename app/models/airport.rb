@@ -9,4 +9,8 @@ class Airport < ActiveRecord::Base
 			scoped
 		end
 	end
+
+	def pretty_name
+		self.code + " - " + self.name
+	end 
 end

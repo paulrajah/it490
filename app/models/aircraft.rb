@@ -6,9 +6,13 @@ class Aircraft < ActiveRecord::Base
 
 	def self.search(search)
 		if search
-			where('LOWER(tail_number) LIKE LOWER(?)', "%#{search}%")
+			joins(:aircraft_type).where('LOWER(tail_number) LIKE LOWER(?) or LOWER(aircraft_types.name) LIKE LOWER(?)', "%#{search}%", "%#{search}%")
 		else
 			scoped
 		end
 	end
+
+	def pretty_name
+		self.tail_number + " - " + self.aircraft_type.name
+	end 
 end

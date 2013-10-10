@@ -158,12 +158,28 @@ Airport.create(code: 'DCA', name: 'Ronald Reagan Washington National')
 
 # Aircraft
 Aircraft.create(tail_number: 'N234AA', aircraft_type_id: 1, fuel_amount: 10000)
+Aircraft.create(tail_number: 'N235BA', aircraft_type_id: 1, fuel_amount: 10000)
+Aircraft.create(tail_number: 'T324TT', aircraft_type_id: 4, fuel_amount: 25000)
+Aircraft.create(tail_number: 'B124CL', aircraft_type_id: 5, fuel_amount: 35000)
+Aircraft.create(tail_number: 'G324CA', aircraft_type_id: 8, fuel_amount: 35000)
+
+# Aircrew
+Aircrew.create(pilot_id: 1, navigator_id: 2)
+Aircrew.create(pilot_id: 3, navigator_id: 4)
+Aircrew.create(pilot_id: 5, navigator_id: 6)
+Aircrew.create(pilot_id: 7, navigator_id: 8)
+Aircrew.create(pilot_id: 9, navigator_id: 10)
+Aircrew.create(pilot_id: 11, navigator_id: 12)
+
+# Shipment Request
+ShipmentRequest.create(user_id: 1, origin_id: 32, destination_id: 24, desired_departure_datetime: 2.days.from_now, cargo_weight: 50000, cargo_contents: "Electronics", is_accepted: true)
+ShipmentRequest.create(user_id: 1, origin_id: 19, destination_id: 12, desired_departure_datetime: 5.days.from_now, cargo_weight: 24000, cargo_contents: "Books", is_accepted: false)
+ShipmentRequest.create(user_id: 1, origin_id: 23, destination_id: 28, desired_departure_datetime: 6.days.from_now, cargo_weight: 34000, cargo_contents: "Produce", is_accepted: false)
+ShipmentRequest.create(user_id: 1, origin_id: 26, destination_id: 30, desired_departure_datetime: 7.days.from_now, cargo_weight: 22000, cargo_contents: "Parts", is_accepted: false)
+ShipmentRequest.create(user_id: 1, origin_id: 5, destination_id: 32, desired_departure_datetime: 4.days.from_now, cargo_weight: 18000, cargo_contents: "Toys", is_accepted: false)
 
 # Cargo
 Cargo.create(weight: 50000, contents: "electronics")
 
-# Aircrew
-Aircrew.create(pilot_id: 1, navigator_id: 2)
-
 # Flight
-Flight.create(number: '1418', aircraft_id: 1, origin_id: 32, destination_id: 24, departure_time: '2013-10-02 18:29:04', arrival_time: '2013-10-02 18:29:04', cargo_id: 1, aircrew_id: 1)
+Flight.create(number: '1418', user_id: 1, request_id: 1, aircraft_id: 1, origin_id: 32, destination_id: 24, departure_time: 2.days.from_now, arrival_time: 3.days.from_now, cargo_id: 1, aircrew_id: 1)

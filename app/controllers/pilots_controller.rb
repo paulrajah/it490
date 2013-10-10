@@ -5,7 +5,7 @@ class PilotsController < ApplicationController
   before_action :set_pilot, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
-  layout 'admin'
+  layout 'secure'
 
   # GET /pilots
   # GET /pilots.json

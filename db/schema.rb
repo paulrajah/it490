@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130929134531) do
+ActiveRecord::Schema.define(version: 20131008165424) do
 
   create_table "aircraft_types", force: true do |t|
     t.string   "code",       limit: 3
@@ -56,12 +56,14 @@ ActiveRecord::Schema.define(version: 20130929134531) do
   end
 
   create_table "flights", force: true do |t|
-    t.string  "number"
+    t.string   "number"
+    t.integer  "user_id"
+    t.integer  "request_id"
     t.integer  "aircraft_id"
-    t.integer   "origin_id"
-    t.integer   "destination_id"
-    t.date     "departure_time"
-    t.date     "arrival_time"
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.datetime "departure_time"
+    t.datetime "arrival_time"
     t.integer  "cargo_id"
     t.integer  "aircrew_id"
     t.datetime "created_at"
@@ -80,6 +82,18 @@ ActiveRecord::Schema.define(version: 20130929134531) do
   create_table "pilots", force: true do |t|
     t.string   "fname"
     t.string   "lname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shipment_requests", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.datetime "desired_departure_datetime"
+    t.integer  "cargo_weight"
+    t.string   "cargo_contents"
+    t.boolean  "is_accepted",                default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,7 +5,7 @@ class AircraftTypesController < ApplicationController
   before_action :set_aircraft_type, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
-  layout 'admin'
+  layout 'secure'
 
   # GET /aircraft_types
   # GET /aircraft_types.json

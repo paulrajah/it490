@@ -5,7 +5,7 @@ class AirportsController < ApplicationController
   before_action :set_airport, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
-  layout 'admin'
+  layout 'secure'
 
   # GET /airports
   # GET /airports.json

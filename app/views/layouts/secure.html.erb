@@ -40,7 +40,10 @@
 
   <div class="container">
     <div id="side">
-    	<ul id="sidenav">
+      <ul id="sidenav">
+        <li><%= link_to "Shipment Requests", shipment_requests_path %></li>
+
+        <% if current_user.try(:is_admin?) %>
     		<li><%= link_to "Aircrafts", aircrafts_path %></li>
     		<li><%= link_to "Aircraft Types", aircraft_types_path %></li>
         <li><%= link_to "Aircrews", aircrews_path %></li>
@@ -48,8 +51,11 @@
         <li><%= link_to "Flights", flights_path %></li>
     		<li><%= link_to "Pilots", pilots_path %></li>
     		<li><%= link_to "Navigators", navigators_path %></li>
-        <li><%= link_to "Users", users_path %></li>
-    	</ul>
+        <li><%= link_to "Users", user_manager_index_path %></li>
+        <% else %>
+        <li><%= link_to "Track Shipments", shipments_path %></li>
+        <% end %>
+      </ul>
     </div>
     <div id="main">
     	<%= yield %>

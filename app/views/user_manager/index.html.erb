@@ -1,12 +1,12 @@
 <h1>Listing of Users</h1>
 
 <div>
-  <%= link_to 'New User', new_user_path %>
+  <%= link_to 'New User', new_user_manager_path %>
 </div>
 
 <br>
 
-<%= form_tag users_path, :method => 'get', :id => "users_search" do %>
+<%= form_tag user_manager_index_path, :method => 'get', :id => "users_search" do %>
   <div>
     <%= text_field_tag :search, params[:search], :placeholder => 'Search by Email', :size => 45 %>
     <%= submit_tag "Search", :name => nil, :class => 'button big gh-black' %>
