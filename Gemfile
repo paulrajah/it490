@@ -18,6 +18,8 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
+gem 'postmark-rails', '~> 0.5.2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

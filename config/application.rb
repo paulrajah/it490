@@ -20,5 +20,8 @@ module It490
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = { :api_key => "94f42d3f-ce49-43fc-85f1-fe6b67a7af66" }
+
   end
 end
