@@ -1,0 +1,11 @@
+<h1>Listing of Cargo</h1>
+
+<br>
+
+<%= form_tag cargo_path, :method => 'get', :id => "cargo_search" do %>
+  <div>
+    <%= text_field_tag :search, params[:search], :placeholder => 'Search by cargo id', :size => 45 %>
+    <%= submit_tag "Search", :name => nil, :class => 'button big gh-black' %>
+  </div>
+  <div id="carog"><%= render 'cargo' %></div>
+<% end %>

@@ -7,6 +7,12 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" =>true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <% if current_user.try(:is_admin?) %>
+  <style type="text/css">
+    ul#sidenav li a {background-color: #990000;}
+  </style>
+  <% end %>
 </head>
 
 <body>
@@ -41,19 +47,20 @@
   <div class="container">
     <div id="side">
       <ul id="sidenav">
-        <li><%= link_to "Shipment Requests", shipment_requests_path %></li>
+        <li><%= link_to "Delivery Requests", shipment_requests_path %></li>
 
         <% if current_user.try(:is_admin?) %>
     		<li><%= link_to "Aircrafts", aircrafts_path %></li>
     		<li><%= link_to "Aircraft Types", aircraft_types_path %></li>
         <li><%= link_to "Aircrews", aircrews_path %></li>
     		<li><%= link_to "Airports", airports_path %></li>
+        <li><%= link_to "Cargo", cargo_path %></li>
         <li><%= link_to "Flights", flights_path %></li>
     		<li><%= link_to "Pilots", pilots_path %></li>
     		<li><%= link_to "Navigators", navigators_path %></li>
         <li><%= link_to "Users", user_manager_index_path %></li>
         <% else %>
-        <li><%= link_to "Track Shipments", shipments_path %></li>
+        <li><%= link_to "Track Cargo", shipments_path %></li>
         <% end %>
       </ul>
     </div>

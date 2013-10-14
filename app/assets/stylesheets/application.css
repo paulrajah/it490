@@ -128,7 +128,7 @@ li {
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 
 .container {
-	width:980px;
+	width:1180px;
 	margin-left:auto;
 	margin-right:auto;
 	-moz-box-sizing:border-box;
@@ -303,7 +303,7 @@ a.th {
 
 #main {
   float:right;
-  width:700px;
+  width:900px;
   padding:15px;
 }
 

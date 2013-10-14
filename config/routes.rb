@@ -7,7 +7,7 @@ It490::Application.routes.draw do
 
   resources :shipment_requests
   get 'shipments' => 'shipments#index'
-
+  get 'cargo' => 'cargo#index'
   resources :aircrafts
   resources :aircraft_types
   resources :aircrews

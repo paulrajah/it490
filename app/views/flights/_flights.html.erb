@@ -11,6 +11,7 @@
 			<th><%= sortable "destination" %></th>
 			<th><%= sortable "departure_time" %></th>
 			<th><%= sortable "arrival_time" %></th>
+			<th>Cargo Owner</th>
 			<th>Cargo Contents</th>
 			<th>Cargo Weight</th>
 			<th>Pilot</th>
@@ -27,6 +28,7 @@
 			<td><%= flight.destination.pretty_name %></td>
 			<td><%= flight.departure_time %></td>
 			<td><%= flight.arrival_time %></td>
+			<td><%= flight.user.email %></td>
 			<td><%= flight.cargo.contents %></td>
 			<td><%= flight.cargo.weight %></td>
 			<td><%= "#{flight.aircrew.pilot.lname}, #{flight.aircrew.pilot.fname}" %></td>

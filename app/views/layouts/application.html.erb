@@ -25,9 +25,10 @@
         <div class="command-bar">
           <ul class="top-nav">
             <% if user_signed_in? %>
-                <li class="shipments"><a href="/shipments">My Shipments</a></li>
               <% if current_user.try(:is_admin?) %>
                 <li class="admin"><%= link_to "Admin Console", aircrafts_path %></li>
+              <% else %>
+                <li class="shipments"><a href="/shipments">My Shipments</a></li>
               <% end %>
             <% end %>
           </ul>
