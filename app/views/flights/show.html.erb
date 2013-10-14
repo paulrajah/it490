@@ -4,54 +4,54 @@
 
 <p>
   <strong>Flight Number:</strong>
-  <%= @flight.number %>
+  <%= @flight.number rescue "n/a" %>
 </p>
 
 <p>
   <strong>Aircraft Tail Number:</strong>
-  <%= @flight.aircraft.tail_number %>
+  <%= @flight.aircraft.tail_number rescue "n/a" %>
 </p>
 <p>
   <strong>Aircraft Type:</strong>
-  <%= "#{@flight.aircraft.aircraft_type.code} - #{@flight.aircraft.aircraft_type.name}" %>
+  <%= "#{@flight.aircraft.aircraft_type.code} - #{@flight.aircraft.aircraft_type.name}" rescue "n/a" %>
 </p>
 <p>
   <strong>Aircraft Fuel Capacity:</strong>
-  <%= @flight.aircraft.fuel_amount %>
+  <%= @flight.aircraft.fuel_amount rescue "n/a" %>
 </p>
 <p>
   <strong>Origin Airport:</strong>
-  <%= "#{@flight.origin.code} - #{@flight.origin.name}" %>
+  <%= "#{@flight.origin.code} - #{@flight.origin.name}" rescue "n/a" %>
 </p>
 <p>
   <strong>Destination Airport:</strong>
-  <%= "#{@flight.destination.code} - #{@flight.destination.name}" %>
+  <%= "#{@flight.destination.code} - #{@flight.destination.name}" rescue "n/a" %>
 </p>
 <p>
   <strong>Departure Time:</strong>
-  <%= @flight.departure_time %>
+  <%= @flight.departure_time rescue "n/a" %>
 </p>
 <p>
   <strong>Arrival Time:</strong>
-  <%= @flight.arrival_time %>
+  <%= @flight.arrival_time rescue "n/a" %>
 </p>
 
 <p>
   <strong>Cargo Contents:</strong>
-  <%= @flight.cargo.contents %>
+  <%= @flight.cargo.contents rescue "n/a" %>
 </p>
 <p>
   <strong>Cargo Weight:</strong>
-  <%= @flight.cargo.weight %>
+  <%= @flight.cargo.weight rescue "n/a" %>
 </p>
 
 <p>
   <strong>Pilot:</strong>
-  <%= "#{@flight.aircrew.pilot.lname}, #{@flight.aircrew.pilot.fname}" %>
+  <%= "#{@flight.aircrew.pilot.lname}, #{@flight.aircrew.pilot.fname}" rescue "n/a" %>
 </p>
 <p>
   <strong>Navigator:</strong>
-   <%= "#{@flight.aircrew.navigator.lname}, #{@flight.aircrew.navigator.fname}" %>
+   <%= "#{@flight.aircrew.navigator.lname}, #{@flight.aircrew.navigator.fname}" rescue "n/a" %>
 </p>
 
 <%= link_to 'Edit', edit_flight_path(@flight) %> |

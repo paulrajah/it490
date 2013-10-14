@@ -20,21 +20,29 @@ class FlightsController < ApplicationController
 
   # GET /flights/new
   def new
-    shipment_request = ShipmentRequest.find(params[:shipment_request_id])
+    req_id = params[:shipment_request_id]
+    unless req_id.nil?
+      shipment_request = ShipmentRequest.find(params[:shipment_request_id])
 
-    @flight = Flight.new
-    @flight.user_id = shipment_request.user_id
-    @flight.request_id = shipment_request.id
-    @flight.origin_id = shipment_request.origin_id
-    @flight.destination_id = shipment_request.destination_id
-    @flight.departure_time = shipment_request.desired_departure_datetime
-    @flight.arrival_time = (shipment_request.desired_departure_datetime + 6.hours).to_datetime
+      @flight = Flight.new
+      @flight.user_id = shipment_request.user_id
+      @flight.request_id = shipment_request.id
+      @flight.origin_id = shipment_request.origin_id
+      @flight.destination_id = shipment_request.destination_id
+      @flight.departure_time = shipment_request.desired_departure_datetime
+      @flight.arrival_time = (shipment_request.desired_departure_datetime + 6.hours).to_datetime
 
-    cargo = Cargo.new
-    cargo.weight = shipment_request.cargo_weight
-    cargo.contents = shipment_request.cargo_contents
+      cargo = Cargo.new
+      cargo.weight = shipment_request.cargo_weight
+      cargo.contents = shipment_request.cargo_contents
 
-    @flight.cargo = cargo
+      @flight.cargo = cargo
+    else
+      @flight = Flight.new
+      cargo = Cargo.new
+      @flight.cargo = cargo
+    end
+
   end
 
   # GET /flights/1/edit
@@ -70,9 +78,12 @@ class FlightsController < ApplicationController
     respond_to do |format|
 
       if @flight.save
-        request = ShipmentRequest.find(@flight.request_id)
-        request.is_accepted = true
-        request.save
+        req_id = params[:shipment_request_id]
+        unless req_id.nil?
+          request = ShipmentRequest.find(@flight.request_id)
+          request.is_accepted = true
+          request.save
+        end
 
         format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
         format.json { render action: 'show', status: :created, location: @flight }

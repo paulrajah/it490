@@ -4,17 +4,17 @@
 
 <p>
   <strong>Tail Number:</strong>
-  <%= @aircraft.tail_number %>
+  <%= @aircraft.tail_number rescue "n/a" %>
 </p>
 
 <p>
   <strong>Aircraft Type:</strong>
-  <%= @aircraft.aircraft_type.name %>
+  <%= @aircraft.aircraft_type.name rescue "n/a" %>
 </p>
 
 <p>
   <strong>Fuel Amount:</strong>
-  <%= @aircraft.fuel_amount %>
+  <%= @aircraft.fuel_amount rescue "n/a" %>
 </p>
 
 <%= link_to 'Edit', edit_aircraft_path(@aircraft) %> |

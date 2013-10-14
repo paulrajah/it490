@@ -15,9 +15,9 @@
 	<tbody>
 		<% @aircrews.each do |aircrew| %>
 		<tr>
-			<td><%= aircrew.id %></td>
-			<td><%= aircrew.pilot.lname + ", " + aircrew.pilot.fname %>
-			<td><%= aircrew.navigator.lname + ", " + aircrew.navigator.fname %></td>
+			<td><%= aircrew.id rescue "n/a" %></td>
+			<td><%= aircrew.pilot.lname + ", " + aircrew.pilot.fname rescue "n/a" %>
+			<td><%= aircrew.navigator.lname + ", " + aircrew.navigator.fname rescue "n/a" %></td>
 			<td><%= link_to 'Show', aircrew %></td>
 			<td><%= link_to 'Edit', edit_aircrew_path(aircrew) %></td>
 			<td><%= link_to 'Destroy', aircrew, method: :delete, data: { confirm: 'Are you sure?' } %></td>

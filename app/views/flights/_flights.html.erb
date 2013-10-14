@@ -23,16 +23,16 @@
 	<tbody>
 		<% @flights.each do |flight| %>
 		<tr>
-			<td><%= flight.number %></td>
-			<td><%= flight.origin.pretty_name %></td>
-			<td><%= flight.destination.pretty_name %></td>
-			<td><%= flight.departure_time %></td>
-			<td><%= flight.arrival_time %></td>
-			<td><%= flight.user.email %></td>
-			<td><%= flight.cargo.contents %></td>
-			<td><%= flight.cargo.weight %></td>
-			<td><%= "#{flight.aircrew.pilot.lname}, #{flight.aircrew.pilot.fname}" %></td>
-			<td><%= "#{flight.aircrew.navigator.lname}, #{flight.aircrew.navigator.fname}" %></td>
+			<td><%= flight.number rescue "n/a" %></td>
+			<td><%= flight.origin.pretty_name rescue "n/a" %></td>
+			<td><%= flight.destination.pretty_name rescue "n/a" %></td>
+			<td><%= flight.departure_time rescue "n/a" %></td>
+			<td><%= flight.arrival_time rescue "n/a" %></td>
+			<td><%= flight.user.email rescue "n/a" %></td>
+			<td><%= flight.cargo.contents rescue "n/a" %></td>
+			<td><%= flight.cargo.weight rescue "n/a" %></td>
+			<td><%= "#{flight.aircrew.pilot.lname}, #{flight.aircrew.pilot.fname}" rescue "n/a" %></td>
+			<td><%= "#{flight.aircrew.navigator.lname}, #{flight.aircrew.navigator.fname}" rescue "n/a" %></td>
 			<td><%= link_to 'Show', flight %></td>
 			<td><%= link_to 'Edit', edit_flight_path(flight) %></td>
 			<td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>

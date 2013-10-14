@@ -4,12 +4,12 @@
 
 <p>
   <strong>First Name:</strong>
-  <%= @navigator.fname %>
+  <%= @navigator.fname rescue "n/a" %>
 </p>
 
 <p>
   <strong>Last Name:</strong>
-  <%= @navigator.lname %>
+  <%= @navigator.lname rescue "n/a" %>
 </p>
 
 <%= link_to 'Edit', edit_navigator_path(@navigator) %> |

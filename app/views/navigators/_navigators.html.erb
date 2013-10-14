@@ -15,8 +15,8 @@
 	<tbody>
 		<% @navigators.each do |navigator| %>
 		<tr>
-			<td><%= navigator.fname %></td>
-			<td><%= navigator.lname %></td>
+			<td><%= navigator.fname rescue "n/a" %></td>
+			<td><%= navigator.lname rescue "n/a" %></td>
 			<td><%= link_to 'Show', navigator %></td>
 			<td><%= link_to 'Edit', edit_navigator_path(navigator) %></td>
 			<td><%= link_to 'Destroy', navigator, method: :delete, data: { confirm: 'Are you sure?' } %></td>

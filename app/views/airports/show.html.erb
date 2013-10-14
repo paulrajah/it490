@@ -4,12 +4,12 @@
 
 <p>
   <strong>Code:</strong>
-  <%= @airport.code %>
+  <%= @airport.code rescue "n/a" %>
 </p>
 
 <p>
   <strong>Name:</strong>
-  <%= @airport.name %>
+  <%= @airport.name rescue "n/a" %>
 </p>
 
 <%= link_to 'Edit', edit_airport_path(@airport) %> |

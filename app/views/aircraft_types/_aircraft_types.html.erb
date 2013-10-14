@@ -15,8 +15,8 @@
 	<tbody>
 		<% @aircraft_types.each do |aircraft_type| %>
 		<tr>
-			<td><%= aircraft_type.code %></td>
-			<td><%= aircraft_type.name %></td>
+			<td><%= aircraft_type.code rescue "n/a" %></td>
+			<td><%= aircraft_type.name rescue "n/a" %></td>
 			<td><%= link_to 'Show', aircraft_type %></td>
 			<td><%= link_to 'Edit', edit_aircraft_type_path(aircraft_type) %></td>
 			<td><%= link_to 'Destroy', aircraft_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>

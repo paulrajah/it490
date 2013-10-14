@@ -4,12 +4,12 @@
 
 <p>
   <strong>Pilot:</strong>
-  <%= "#{@aircrew.pilot.lname}, #{@aircrew.pilot.fname}" %>
+  <%= "#{@aircrew.pilot.lname}, #{@aircrew.pilot.fname}" rescue "n/a" %>
 </p>
 
 <p>
   <strong>Navigator:</strong>
-  <%= "#{@aircrew.navigator.lname}, #{@aircrew.navigator.fname}" %>
+  <%= "#{@aircrew.navigator.lname}, #{@aircrew.navigator.fname}" rescue "n/a" %>
 </p>
 
 <%= link_to 'Edit', edit_aircrew_path(@aircrew) %> |

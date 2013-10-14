@@ -4,55 +4,55 @@
 
 <p>
   <strong>Email:</strong>
-  <%= @user.email %>
+  <%= @user.email rescue "n/a" %>
 </p>
 <p>
   <strong>Encrypted Password:</strong>
-  <%= @user.encrypted_password %>
+  <%= @user.encrypted_password rescue "n/a" %>
 </p>
 <p>
   <strong>Reset Password Token:</strong>
-  <%= @user.reset_password_token %>
+  <%= @user.reset_password_token rescue "n/a" %>
 </p>
 <p>
   <strong>Reset Password Sent At:</strong>
-  <%= @user.reset_password_sent_at %>
+  <%= @user.reset_password_sent_at rescue "n/a" %>
 </p>
 <p>
   <strong>Remember Created At:</strong>
-  <%= @user.remember_created_at %>
+  <%= @user.remember_created_at rescue "n/a" %>
 </p>
 <p>
   <strong>Sign In Count:</strong>
-  <%= @user.sign_in_count %>
+  <%= @user.sign_in_count rescue "n/a" %>
 </p>
 <p>
   <strong>Current Sign In At:</strong>
-  <%= @user.current_sign_in_at %>
+  <%= @user.current_sign_in_at rescue "n/a" %>
 </p>
 <p>
   <strong>Last Sign In At:</strong>
-  <%= @user.last_sign_in_at %>
+  <%= @user.last_sign_in_at rescue "n/a" %>
 </p>
 <p>
   <strong>Current Sign In IP:</strong>
-  <%= @user.current_sign_in_ip %>
+  <%= @user.current_sign_in_ip rescue "n/a" %>
 </p>
 <p>
   <strong>Last Sign In IP:</strong>
-  <%= @user.last_sign_in_ip %>
+  <%= @user.last_sign_in_ip rescue "n/a" %>
 </p>
 <p>
   <strong>Created At:</strong>
-  <%= @user.created_at %>
+  <%= @user.created_at rescue "n/a" %>
 </p>
 <p>
   <strong>Updated At:</strong>
-  <%= @user.updated_at %>
+  <%= @user.updated_at rescue "n/a" %>
 </p>
 <p>
   <strong>Is Admin:</strong>
-  <%= @user.is_admin %>
+  <%= @user.is_admin rescue "n/a" %>
 </p>
 
 <%= link_to 'Edit', edit_user_manager_path(@user) %> |

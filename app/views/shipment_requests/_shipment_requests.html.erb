@@ -22,14 +22,14 @@
 		<% @shipment_requests.each do |shipment_request| %>
 		<tr>
 			<% if current_user.try(:is_admin?) %>
-			<td><%= shipment_request.user.email %></td>
+			<td><%= shipment_request.user.email rescue "n/a" %></td>
 			<% end %>
-			<td><%= shipment_request.id %></td>
-			<td><%= shipment_request.origin.code %></td>
-			<td><%= shipment_request.destination.code %></td>
-			<td><%= shipment_request.cargo_contents %></td>
-			<td><%= shipment_request.cargo_weight %></td>
-			<td><%= shipment_request.desired_departure_datetime %></td>
+			<td><%= shipment_request.id rescue "n/a" %></td>
+			<td><%= shipment_request.origin.code rescue "n/a" %></td>
+			<td><%= shipment_request.destination.code rescue "n/a" %></td>
+			<td><%= shipment_request.cargo_contents rescue "n/a" %></td>
+			<td><%= shipment_request.cargo_weight rescue "n/a" %></td>
+			<td><%= shipment_request.desired_departure_datetime rescue "n/a" %></td>
 			<% if current_user.try(:is_admin?) %>
 			<td><%= link_to 'Schedule', new_flight_path(:shipment_request_id => shipment_request.id) %></td>
 			<% end %>

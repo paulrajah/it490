@@ -15,8 +15,8 @@
 	<tbody>
 		<% @pilots.each do |pilot| %>
 		<tr>
-			<td><%= pilot.fname %></td>
-			<td><%= pilot.lname %></td>
+			<td><%= pilot.fname rescue "n/a" %></td>
+			<td><%= pilot.lname rescue "n/a" %></td>
 			<td><%= link_to 'Show', pilot %></td>
 			<td><%= link_to 'Edit', edit_pilot_path(pilot) %></td>
 			<td><%= link_to 'Destroy', pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -21,15 +21,15 @@
 	<tbody>
 		<% @cargo.each do |c| %>
 		<tr>
-			<td><%= c.id %></td>
-			<td><%= c.flight.user.email %></td>
-			<td><%= c.contents %></td>
-			<td><%= c.weight %></td>
-			<td><%= c.flight.number %></td>
-			<td><%= c.flight.origin.pretty_name %></td>
-			<td><%= c.flight.destination.pretty_name %></td>
-			<td><%= c.flight.departure_time %></td>
-			<td><%= c.flight.arrival_time %></td>
+			<td><%= c.id rescue "n/a" %></td>
+			<td><%= c.flight.user.email rescue "n/a" %></td>
+			<td><%= c.contents rescue "n/a" %></td>
+			<td><%= c.weight rescue "n/a" %></td>
+			<td><%= c.flight.number rescue "n/a" %></td>
+			<td><%= c.flight.origin.pretty_name rescue "n/a" %></td>
+			<td><%= c.flight.destination.pretty_name rescue "n/a" %></td>
+			<td><%= c.flight.departure_time rescue "n/a" %></td>
+			<td><%= c.flight.arrival_time rescue "n/a" %></td>
 		</tr>
 		<% end %></tbody>
 </table>

@@ -4,13 +4,13 @@
 
 <p>
   <strong>Code:</strong>
-  <%= @aircraft_type.code %>
+  <%= @aircraft_type.code rescue "n/a" %>
 </p>
 
 
 <p>
   <strong>Name:</strong>
-  <%= @aircraft_type.name %>
+  <%= @aircraft_type.name rescue "n/a" %>
 </p>
 
 <%= link_to 'Edit', edit_aircraft_type_path(@aircraft_type) %> |

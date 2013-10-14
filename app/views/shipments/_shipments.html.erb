@@ -16,13 +16,13 @@
 	<tbody>
 		<% @flights.each do |flight| %>
 		<tr>
-			<td><%= flight.number %></td>
-			<td><%= flight.origin.pretty_name %></td>
-			<td><%= flight.destination.pretty_name %></td>
-			<td><%= flight.departure_time %></td>
-			<td><%= flight.arrival_time %></td>
-			<td><%= flight.cargo.contents %></td>
-			<td><%= flight.cargo.weight %></td>
+			<td><%= flight.number rescue "n/a" %></td>
+			<td><%= flight.origin.pretty_name rescue "n/a" %></td>
+			<td><%= flight.destination.pretty_name rescue "n/a" %></td>
+			<td><%= flight.departure_time rescue "n/a" %></td>
+			<td><%= flight.arrival_time rescue "n/a" %></td>
+			<td><%= flight.cargo.contents rescue "n/a" %></td>
+			<td><%= flight.cargo.weight rescue "n/a" %></td>
 		</tr>
 		<% end %></tbody>
 </table>
