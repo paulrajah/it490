@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .
  */
+#plane{
+  margin-right: auto;
+  margin-left: auto;
+}
+
 
 @font-face {
   font-family: 'Lato';
